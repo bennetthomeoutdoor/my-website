@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,27 +10,18 @@
     
     <style>
         :root { 
-            /* 🎨 Your brand palette */
             --brand-royal-blue: #0056b8; 
             --dark-blue-btn: #003c82;   
-            --accent-green: #00cc00;    /* 🟢 Frame green color */
-            --accent-yellow: #ffd11a;   /* 🟡 Brand yellow color */
+            --accent-green: #00cc00;    
+            --accent-yellow: #ffd11a;   
             --white-card: #ffffff;      
             --text-on-blue: #ffffff;    
             --text-on-white: #222222;   
         }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
         
-        html, body {
-            height: 100%;
-            width: 100%;
-        }
+        html, body { height: 100%; width: 100%; overflow-x: hidden; }
 
         body { 
             background-color: var(--brand-royal-blue); 
@@ -39,671 +29,85 @@
             line-height: 1.3; 
             font-size: 14px; 
         }
-        
-        /* ── WELCOME VIEW (Locks exactly to 100% of the screen window height) ── */
-        .welcome-view {
-            display: flex;
-            flex-direction: column; 
-            width: 100%;
-            height: 100vh; /* Takes up exactly the visible screen area upon opening */
-            position: relative;
-        }
 
-        /* ── HEADER & NAVIGATION ── */
-        header { 
-            background: transparent; 
-            padding: 10px 1% 8px 10px; 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            width: 100%;
+        /* CSS FIX: Prevents zoom-out on mobile */
+        @media (max-width: 600px) {
+            html, body { width: 100%; position: relative; }
         }
         
-        .nav-container { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            max-width: 100%; 
-            padding-right: 1%;
-            margin: 0 auto; 
-            width: 100%; 
-        }
-        
-        .logo-link { 
-            display: block; 
-            max-width: 40%; 
-            width: 40%; 
-            height: auto; 
-            background-color: #0d47a1; 
-            border: 3px solid #ffffff; 
-            border-radius: 8px; 
-            padding: 8px; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            margin-right: auto; 
-        }
-        
-        .logo-img { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-            background: transparent; 
-        }
-        
-        .phone-column { 
-            text-align: center; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .text-yellow { 
-            color: var(--accent-yellow); 
-            font-weight: 900; 
-            font-size: 1.25rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .phone-large { 
-            color: var(--text-on-blue); 
-            background-color: var(--dark-blue-btn); 
-            font-size: 1.85rem; 
-            font-weight: 900; 
-            text-decoration: none; 
-            line-height: 1; 
-            margin: 6px 0;
-            padding: 10px 24px; 
-            border-radius: 35px;
-            display: block;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-            transition: background-color 0.2s, transform 0.2s;
-            border: 3px solid var(--text-on-blue);
-            animation: softPulse 3s infinite;
-        }
-        
-        .phone-large:hover { 
-            background-color: var(--dark-blue-btn);
-            transform: translateY(-1px);
-            animation-play-state: paused;
-        }
+        .welcome-view { display: flex; flex-direction: column; width: 100%; min-height: 100vh; position: relative; }
 
-        @keyframes softPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
+        header { background: transparent; padding: 10px 1% 8px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); width: 100%; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 100%; padding-right: 1%; margin: 0 auto; width: 100%; }
+        .logo-link { display: block; max-width: 320px; width: 100%; background-color: #0d47a1; border: 3px solid #ffffff; border-radius: 8px; padding: 8px; margin-right: auto; }
+        .logo-img { width: 100%; height: auto; display: block; }
+        .phone-column { text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .text-yellow { color: var(--accent-yellow); font-weight: 900; font-size: 1.25rem; text-transform: uppercase; }
+        .phone-large { color: var(--text-on-blue); background-color: var(--dark-blue-btn); font-size: 1.85rem; font-weight: 900; text-decoration: none; padding: 10px 24px; border-radius: 35px; border: 3px solid var(--text-on-blue); margin: 6px 0; }
 
-        /* ── HERO AREA ── */
-        .hero { 
-            text-align: center; 
-            padding: 15px 20px 0px; /* Clean 15px space right below the thin line */
-            max-width: 850px; 
-            margin: 0 auto; 
-        }
-        
-        .hero h1 { 
-            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-            font-size: 2.4rem; 
-            color: var(--text-on-blue); 
-            margin-top: 0px; 
-            margin-bottom: 6px; 
-            font-weight: 900; 
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3); 
-            line-height: 1.2;
-            letter-spacing: -0.5px;
-        }
+        .hero { text-align: center; padding: 15px 20px 0px; max-width: 850px; margin: 0 auto; }
+        .hero h1 { font-size: 2.4rem; color: var(--text-on-blue); font-weight: 900; margin-bottom: 6px; }
 
-        .badges-inline {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--accent-yellow); 
-            flex-wrap: wrap;
-            margin-bottom: 5px; 
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-        }
+        .services-section { padding: 0 5% 20px; background-color: var(--brand-royal-blue); width: 100%; margin-top: auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(187px, 1fr)); gap: 15px; max-width: 935px; margin: 0 auto; width: 100%; }
         
-        .badges-inline span {
-            display: inline-flex;
-            align-items: center;
-        }
+        .card { background: var(--white-card); padding: 10px 12px 12px; border-radius: 12px; text-decoration: none; color: var(--text-on-white); border: 5px solid var(--accent-green); display: flex; flex-direction: column; min-height: 145px; }
+        .card h3 { color: var(--brand-royal-blue); font-size: 1.1rem; text-align: center; }
+        .card p { color: #555; font-size: 0.75rem; font-weight: 700; margin: 6px 0; }
+        .card-btn { background: var(--accent-yellow); color: #000; width: 106px; height: 24px; font-weight: bold; border-radius: 20px; font-size: 0.68rem; margin-top: auto; align-self: center; display: flex; align-items: center; justify-content: center; }
 
-        /* ── DESKTOP SERVICES SECTION ── */
-        .services-section { 
-            padding: 0 5% 20px; /* Exactly 20px of bright blue space locked underneath the boxes */
-            background-color: var(--brand-royal-blue); 
-            width: 100%;
-            margin-top: auto; /* Automatically drops boxes straight to the bottom of the fold */
-        }
-        
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(187px, 1fr)); 
-            gap: 15px; 
-            max-width: 100%; 
-            margin: 0 auto; 
-            width: 100%;
-        }
-        
-        .card { 
-            background: var(--white-card); 
-            padding: 10px 12px 12px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            color: var(--text-on-white); 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2); 
-            transition: transform 0.2s, box-shadow 0.2s; 
-            border: 5px solid var(--accent-green); 
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start; 
-            min-height: 145px; 
-            pointer-events: auto; 
-        }
-        
-        .card:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 12px 30px rgba(0,0,0,0.3); 
-        }
-        
-        .card h3 { 
-            color: var(--brand-royal-blue); 
-            font-size: 1.1rem; 
-            margin-bottom: 4px; 
-            font-weight: 700; 
-            text-align: center; 
-            width: 100%;
-        }
-        
-        .card p { 
-            color: #555; 
-            font-size: 0.75rem; 
-            margin: 3px 0; 
-            line-height: 1.35; 
-            text-align: left;
-            width: 100%;
-            font-weight: 700;
-        }
-        
-        .card-btn { 
-            display: flex; 
-            align-items: center;
-            justify-content: center;
-            background: var(--accent-yellow); 
-            color: #000000; 
-            width: 100%;
-            height: 24px; 
-            font-weight: bold; 
-            border-radius: 20px; 
-            font-size: 0.68rem; 
-            margin-top: auto; 
-            align-self: center; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.15); 
-            text-align: center;
-            pointer-events: none; /* Allows clicks to cleanly register on the card link */
-        }
+        footer { background: var(--brand-royal-blue); color: var(--text-on-blue); text-align: center; padding: 25px; border-top: 1px solid rgba(255, 255, 255, 0.15); }
 
-        /* ── LOWER SCROLLABLE CONTENT BLOCK ── */
-        .lower-content {
-            background-color: var(--brand-royal-blue);
-            width: 100%;
-        }
-
-        /* ── ⭐ LIVE GOOGLE REVIEWS SECTION ── */
-        .reviews-section {
-            margin-top: 95px; 
-            padding: 40px 5% 15px;
-            background-color: var(--brand-royal-blue);
-            max-width: 1050px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            width: 100%;
-        }
-
-        .reviews-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            color: var(--text-on-blue);
-            margin-bottom: 20px;
-            font-weight: 800;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.25);
-        }
-
-        .elfsight-reviews-wrapper {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-        }
-
-        /* ── SHOWCASE SECTION ── */
-        .gallery-section { 
-            margin-top: 50px;
-            padding: 40px 5% 25px; 
-            max-width: 800px; 
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center; 
-            width: 100%;
-        }
-        
-        .gallery-section h2 { 
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-on-blue); 
-            margin-bottom: 20px; 
-            font-size: 2.1rem; 
-            font-weight: 800; 
-            text-shadow: 0 2px 4px rgba(0,0,0,0.25); 
-        }
-        
-        .gallery-container { 
-            position: relative; 
-            width: 100%; 
-            height: 320px; 
-            margin: 10px auto; 
-            overflow: hidden; 
-            border-radius: 12px; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.25); 
-            border: 3px solid rgba(255, 255, 255, 0.25); 
-        }
-        
-        .slides { 
-            display: flex; 
-            width: 400%; 
-            height: 100%; 
-            animation: slideAnimation 16s infinite; 
-        }
-        
-        .slide { 
-            width: 25%; 
-            height: 100%; 
-            position: relative; 
-            }
-        
-        .slide img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
-        
-        .slide-caption { 
-            position: absolute; 
-            bottom: 0; 
-            left: 0; 
-            right: 0; 
-            background: rgba(0, 0, 0, 0.75); 
-            color: var(--text-on-blue); 
-            padding: 10px; 
-            font-size: 0.95rem; 
-            font-weight: bold; 
-        }
-        
-        @keyframes slideAnimation {
-            0% { margin-left: 0%; }
-            20% { margin-left: 0%; }
-            25% { margin-left: -100%; }
-            45% { margin-left: -100%; }
-            50% { margin-left: -200%; }
-            70% { margin-left: -200%; }
-            75% { margin-left: -300%; }
-            95% { margin-left: -300%; }
-            100% { margin-left: 0%; }
-        }
-
-        /* ── CONTACT SECTION ── */
-        .contact-section { 
-            padding: 80px 5%; 
-            background: var(--brand-royal-blue); 
-            border-top: 5px solid var(--accent-green); 
-        }
-        
-        .contact-container { 
-            display: grid; 
-            grid-template-columns: 1.2fr 0.8fr; 
-            gap: 45px; 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            align-items: center;
-        }
-        
-        .contact-info h2 { 
-            color: var(--accent-yellow); 
-            font-size: 1.6rem; 
-            margin-bottom: 8px; 
-            font-weight: 700; 
-        }
-        
-        .contact-info p { 
-            color: #ffffff; 
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-            line-height: 1.4;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.15);
-        }
-
-        .contact-form {
-            width: 100%;
-            max-width: 360px; 
-            justify-self: end; 
-        }
-        
-        .contact-form input, .contact-form select { 
-            width: 100%; 
-            padding: 10px; 
-            margin-bottom: 10px; 
-            border: 2px solid rgba(255,255,255,0.2); 
-            border-radius: 6px; 
-            font-size: 0.9rem; 
-            background-color: var(--white-card); 
-            color: #333333; 
-        }
-
-        .contact-form select option {
-            white-space: nowrap;
-        }
-        
-        .btn-submit { 
-            background: var(--dark-blue-btn); 
-            color: var(--text-on-blue); 
-            border: none; 
-            padding: 12px; 
-            width: 100%; 
-            font-weight: bold; 
-            font-size: 1rem; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            transition: background-color 0.2s, box-shadow 0.2s; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
-            border: 2px solid var(--text-on-blue);
-        }
-        
-        .btn-submit:hover { 
-            background-color: var(--accent-green); 
-        }
-
-        footer { 
-            background: var(--brand-royal-blue); 
-            color: var(--text-on-blue); 
-            text-align: center; 
-            padding: 25px; 
-            font-size: 0.85rem; 
-            border-top: 1px solid rgba(255, 255, 255, 0.15); 
-        }
-        
-        /* 📱 MOBILE FIXES */
         @media (max-width: 600px) { 
-            body { font-size: 13px; }
-            header { padding: 15px 5%; }
-            
-            .nav-container { 
-                flex-direction: column; 
-                justify-content: center; 
-                align-items: center; 
-                gap: 15px;
-            } 
-            
-            .logo-link { 
-                max-width: 180px; 
-                width: 100%; 
-                border-width: 2px;
-                padding: 6px;
-                margin: 0 auto; 
-            } 
-            
-            .phone-column { 
-                align-items: center; 
-                width: 100%;
-                margin-top: 5px;
-            }
-            
-            .text-yellow { display: none !important; }
-            
-            .phone-large { 
-                font-size: 1.3rem; 
-                padding: 8px 20px; 
-                margin: 0 auto; 
-                white-space: nowrap;
-                display: inline-block;
-                border-width: 2px;
-                animation: none;
-            }
-            
-            .welcome-view { height: auto; min-height: auto; padding-bottom: 10px; }
-            
-            .hero { padding: 25px 15px 15px; text-align: center; }
-            .hero h1 { font-size: 1.45rem; margin-top: 0px; margin-bottom: 4px; text-align: center; } 
-            .badges-inline { display: none; }
-            
-            .services-section { 
-                padding: 5px 6% 20px; 
-                margin-top: 0px; 
-            }
-
-            .services-grid { 
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 14px !important; 
-                width: 100% !important;
-                max-width: 100% !important;
-            } 
-            
-            .card { 
-                padding: 10px 14px !important; 
-                min-height: 0 !important; 
-                border-width: 3.5px; 
-                border-radius: 10px;
-                align-items: flex-start;
-                width: 100% !important;
-                overflow: hidden;
-            }
-            
-            .card h3 { 
-                white-space: nowrap !important; 
-                font-size: 1.15rem !important; 
-                margin-bottom: 2px; 
-                text-align: left !important; 
-                line-height: 1.2;
-                width: 100%;
-            }
-
-            .card.lighting-card h3 {
-                font-size: 0.85rem !important; 
-                white-space: normal !important; 
-                word-wrap: break-word !important;
-                text-align: left !important;
-                padding-top: 2px;
-            }
-            
-            .card p { 
-                white-space: nowrap !important; 
-                font-size: 0.75rem !important; 
-                margin: 6px 0 !important; 
-                line-height: 1.4 !important; 
-                text-align: left; 
-                width: 100%;
-            }
-            
-            .card-btn { 
-                width: 95px; 
-                height: 25px; 
-                font-size: 0.65rem; 
-                align-self: flex-start; 
-                border-radius: 15px;
-                margin-top: 4px !important; 
-            }
-
-            .reviews-section { margin-top: 25px; padding: 25px 4% 5px; text-align: center; }
-            .reviews-section h2 { font-size: 1.4rem; margin-bottom: 10px; text-align: center; }
-
-            .gallery-section { margin-top: 20px; padding: 25px 5% 10px; text-align: center; }
-            .gallery-section h2 { font-size: 1.6rem !important; text-align: center; margin-bottom: 15px; }
-            .gallery-container { height: 170px; border-radius: 8px; } 
-            
-            .contact-container { grid-template-columns: 1fr; gap: 20px; text-align: center; } 
-            .contact-info { text-align: center; }
-            .contact-info h2 { text-align: center; }
-            
-            .contact-info p { font-size: 1.1rem !important; text-align: center; }
-            .contact-form { max-width: 100% !important; }
+            .services-grid { display: flex !important; flex-direction: column !important; } 
+            .card { width: 100% !important; min-height: 0 !important; }
         }
     </style>
-    
-    <script src="https://elfsightcdn.com/platform.js" async></script>
 </head>
 <body>
 
 <div class="welcome-view">
     <header>
         <div class="nav-container">
-            <a href="index.html" class="logo-link">
-                <img src="logo.png" alt="Bennett Home & Outdoor" class="logo-img">
-            </a>
-            
+            <a href="index.html" class="logo-link"><img src="logo.png" alt="Logo" class="logo-img"></a>
             <div class="phone-column">
                 <span class="text-yellow">Call or Text</span>
                 <a href="tel:3214682461" class="phone-large">(321) 468-2461</a>
-                <span class="text-yellow">For Free Quotes</span>
             </div>
         </div>
     </header>
 
     <section class="hero">
-        <h1>Professional Service for Your<br>Home and Yard</h1>
-        <div class="badges-inline">
-            <span>Licensed & Insured</span>
-            <span>•</span>
-            <span>Family Owned & Operated</span>
-            <span>•</span>
-            <span>Residential & Commercial</span>
-        </div>
+        <h1>Professional Service for Your Home and Yard</h1>
     </section>
 
     <section class="services-section">
         <div class="services-grid">
             <a href="lawn-service.html" class="card">
                 <h3>Lawn Service</h3>
-                <p>
-                    • One-Time Lawn Service<br>
-                    • Monthly Plans<br>
-                    • Heavy Property Cleanup
-                </p>
+                <p>• One-Time Lawn Service<br>• Monthly Plans<br>• Heavy Property Cleanup</p>
                 <span class="card-btn">View Pricing</span>
             </a>
             
-            <a href="roof-lighting.html" class="card lighting-card">
+            <a href="rooflighting.html" class="card">
                 <h3>Permanent Light Installation</h3>
-                <p>
-                    • Govee Pro System<br>
-                    • Never Hang Lights Again<br>
-                    • 4 Year Total Warranty<br>
-                    • Hundreds of Custom Scenes
-                </p>
+                <p>• Govee Pro System<br>• Never Hang Lights Again<br>• 4 Year Total Warranty</p>
                 <span class="card-btn">View Pricing</span>
             </a>
             
             <a href="gutter-cleaning.html" class="card">
                 <h3>Gutter Cleaning</h3>
-                <p>
-                    • Remove Debris<br>
-                    • Clear Out Buildup<br>
-                    • Downspout Cleaning<br>
-                    • Full Clean Up & Disposal
-                </p>
+                <p>• Remove Debris<br>• Clear Out Buildup<br>• Downspout Cleaning</p>
                 <span class="card-btn">View Pricing</span>
             </a>
             
             <a href="can-cleaning.html" class="card">
                 <h3>Trash Bin Cleaning</h3>
-                <p>
-                    • Remove Waste & Grime<br>
-                    • Eliminate Bacteria<br>
-                    • Reduce Odor<br>
-                    • Leave the Dirty Work to Us
-                </p>
+                <p>• Remove Waste & Grime<br>• Eliminate Bacteria<br>• Reduce Odor</p>
                 <span class="card-btn">View Pricing</span>
             </a>
         </div>
     </section>
-</div>
-
-<div class="lower-content">
-    
-    <section class="reviews-section">
-        <h2>What Our Customers Have to Say</h2>
-        <div class="elfsight-reviews-wrapper">
-            <div class="elfsight-app-09e1f200-1392-496a-8647-14e4d178da07" data-elfsight-app-lazy>
-                <p style="color: var(--accent-yellow); font-weight: bold; margin-top: 15px;">
-                    ⭐⭐⭐⭐⭐ Loading our latest live Google Reviews...
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery-section">
-        <h2>Take a Look At Our Work</h2>
-        <div class="gallery-container">
-            <div class="slides">
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1533460004989-cef01064af7e?auto=format&fit=crop&q=80&w=1000" alt="Lawn Care">
-                    <div class="slide-caption">Manicured Yards & Landscaping</div>
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1000" alt="Roof Lighting">
-                    <div class="slide-caption">Permanent Outdoor LED Installations</div>
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&q=80&w=1000" alt="Gutter Maintenance">
-                    <div class="slide-caption">Thorough Gutter Debris Clearing</div>
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1610557892470-55d9e80e0bce?auto=format&fit=crop&q=80&w=1000" alt="Trash Can Cleaning">
-                    <div class="slide-caption">Sanitizing & Pressure Washing Services</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact-section">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2>Get Your Free Estimate</h2>
-                <p>Ready To Transform Your Property?<br>Tell us about your project and we'll<br>reach out promptly with a free quote</p>
-            </div>
-            <form class="contact-form" onsubmit="alert('Thank you! Your request has been sent.'); return false;">
-                <input type="text" placeholder="NAME" required>
-                <input type="tel" placeholder="PHONE NUMBER" required>
-                
-                <select required>
-                    <option value="">SERVICE REQUESTED</option>
-                    <option value="lawn">Lawn Maintenance</option>
-                    <option value="lighting">Permanent Outdoor Lighting Installation</option>
-                    <option value="gutters">Gutter Maintenance</option>
-                    <option value="bins">Trash Bin Cleaning</option>
-                </select>
-                
-                <input type="text" placeholder="PROPERTY ADDRESS" required>
-                
-                <select required>
-                    <option value="">HOW DID YOU HEAR ABOUT US?</option>
-                    <option value="search">Search Engine</option>
-                    <option value="social">Social Media</option>
-                    <option value="referral">Friend/Family</option>
-                    <option value="signage">Vehicle Signage</option>
-                    <option value="other">Other</option>
-                </select>
-                
-                <button type="submit" class="btn-submit">Submit Request</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Bennett Home and Outdoor | All Rights Reserved.</p>
-    </footer>
 </div>
 
 </body>
