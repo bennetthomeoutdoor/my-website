@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gutter Cleaning | Bennett Home and Outdoor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --brand-royal-blue: #0056b8; 
+            --dark-blue-btn: #003c82;   
+            --accent-green: #00cc00;    
+            --accent-yellow: #ffd11a;   
+            --light-yellow-bg: #fff9d6; 
+            --white-card: #ffffff;      
+            --text-on-blue: #ffffff;    
+            --text-on-white: #222222;   
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+        }
+
+        body { 
+            background-color: var(--brand-royal-blue); 
+            color: var(--text-on-blue); 
+            line-height: 1.35; 
+            font-size: 13.5px; 
+            padding-bottom: 20px; 
+            overflow-x: hidden; 
+        }
+        
+        /* ── HEADER NAVIGATION ── */
+        header { 
+            background: rgba(0, 0, 0, 0.15); 
+            padding: 12px 30px; 
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+        }
+        
+        .nav-container { 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            max-width: 1200px; 
+            margin: 0 auto; 
+            width: 100%; 
+        }
+
+        .nav-left {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .nav-center {
+            flex: 0 1 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* GREEN CONTACT BADGE */
+        .contact-badge-oval {
+            background-color: var(--accent-green); 
+            border: 2px solid #ffffff; 
+            border-radius: 40px; 
+            padding: 6px 20px; 
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+
+        .contact-badge-oval .yellow-text {
+            color: var(--accent-yellow); 
+            font-weight: bold;
+            font-size: 0.80rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+        }
+
+        .contact-badge-oval .phone-number {
+            color: #ffffff; 
+            font-weight: 900;
+            font-size: 1.05rem;
+            display: block;
+            margin: 1px 0;
+            text-decoration: none; 
+        }
+        
+        .logo-link { 
+            display: block; 
+            max-width: 200px; 
+            width: 100%; 
+            background-color: #0d47a1; 
+            border: 2px solid #ffffff; 
+            border-radius: 6px; 
+            padding: 6px; 
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+        
+        .btn-back {
+            color: #000000; 
+            text-decoration: none;
+            font-weight: bold;
+            background-color: var(--accent-green); 
+            padding: 8px 16px; 
+            border-radius: 14px; 
+            border: 2px solid #ffffff; 
+            font-size: 0.90rem; 
+            transition: background-color 0.15s ease, color 0.15s ease;
+            white-space: nowrap;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-back:hover, .btn-back:active {
+            background-color: var(--accent-yellow);
+            color: #000000;
+        }
+
+        /* ── LAYOUT WRAPPER ── */
+        .page-wrapper {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            margin-top: 15px;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* INTRO HEADER */
+        .page-intro {
+            text-align: center;
+            margin-bottom: 20px; 
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.30rem; 
+            font-weight: 900;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .page-subtitle {
+            font-size: 1.10rem;
+            font-weight: 600;
+            color: var(--accent-yellow);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* MAIN CONTENT AREA CONTAINER */
+        .content-container {
+            max-width: 960px; 
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* TWO SIDE-BY-SIDE BOX GRID */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px; 
+            margin-bottom: 25px; 
+        }
+
+        .price-card {
+            background: var(--white-card);
+            color: var(--text-on-white);
+            border-radius: 8px;
+            border: 3px solid var(--accent-green); 
+            padding: 16px 20px; 
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .price-card h2 {
+            color: var(--brand-royal-blue);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem; 
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-align: center;
+            width: 100%;
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+        }
+
+        .price-card h2.large-header {
+            font-size: 1.30rem;
+            white-space: nowrap;
+            margin-bottom: 8px;
+        }
+
+        /* LAWN CARE STYLE PRICE TAG */
+        .price-tag {
+            font-size: 1.10rem; 
+            font-weight: 900;
+            color: #111111;
+            background: var(--light-yellow-bg);
+            border-radius: 4px;
+            align-self: center;
+            border-bottom: 3px solid var(--accent-yellow);
+            padding: 2px 14px;
+            margin-bottom: 12px;
+        }
+
+        /* LIST ITEM STYLING WITH CHECKMARKS */
+        .price-card ul {
+            list-style: none;
+            width: 100%;
+        }
+
+        .price-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            font-weight: 700;
+            font-size: 0.90rem;
+            color: #333333;
+            line-height: 1.35;
+            text-align: left;
+        }
+
+        .price-card ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .price-card ul li::before {
+            content: "✓";
+            color: var(--accent-green);
+            position: absolute;
+            left: 0;
+            font-weight: 900;
+            font-size: 0.95rem;
+        }
+
+        /* ── GREEN OVAL FOOTER BANNER (Stretched: 15% Wider, 10% Shorter) ── */
+        .bottom-cta-banner-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;              
+        }
+
+        .bottom-cta-banner {
+            width: auto;
+            max-width: 294px; /* Increased width by 15% from 256px */                                    
+            background-color: var(--accent-green); 
+            border: 2px solid #ffffff;              
+            border-radius: 100px;                  
+            padding: 3px 32px; /* Decreased top/bottom padding by ~10%, increased side padding */                 
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .bottom-cta-banner h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-yellow);           
+            font-size: 0.80rem;                  
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: -4px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .bottom-cta-banner .cta-phone {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;                                
+            font-size: 1.28rem;                  
+            font-weight: 900;
+            display: block;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            margin-bottom: -4px;
+        }
+
+        .bottom-cta-banner p {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-yellow);           
+            font-size: 0.72rem;                  
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+        }
+
+        /* 📱 RESPONSIVE MEDIA QUERIES */
+        @media (max-width: 950px) {
+            .price-card h2.large-header {
+                white-space: normal;
+                font-size: clamp(1.10rem, 4.5vw, 1.30rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 12px 15px; }
+            .page-wrapper { padding: 0 15px; }
+            
+            .page-intro { margin-bottom: 20px; }
+            .page-title { font-size: 2.00rem; }
+            .page-subtitle { font-size: 1.00rem; }
+            
+            .pricing-grid { 
+                grid-template-columns: 1fr; 
+                gap: 20px; 
+                margin-bottom: 25px; 
+            }
+            
+            .price-card { 
+                width: 100%; 
+                padding: 15px 16px; 
+            }
+            
+            .nav-container { flex-direction: column; gap: 10px; }
+            .nav-left, .nav-right { justify-content: center; text-align: center; width: 100%; }
+            .btn-back { width: 100%; max-width: 260px; margin: 0 auto; padding: 7px 14px; }
+            .logo-link { max-width: 160px; margin: 0 auto; }
+            
+            .contact-badge-oval { width: 100%; max-width: 260px; padding: 5px 6px; margin: 0 auto; }
+            .contact-badge-oval .phone-number { font-size: 1.00rem; } 
+            
+            .price-card h2 { font-size: clamp(1.00rem, 4.5vw, 1.20rem); }
+            
+            .bottom-cta-banner { max-width: 240px; width: 100%; border-radius: 40px; padding: 4px 10px; } 
+            .bottom-cta-banner h2 { font-size: 0.65rem; }
+            .bottom-cta-banner .cta-phone { font-size: 1.05rem; } 
+            .bottom-cta-banner p { font-size: 0.65rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="nav-left">
+            <a href="index.html" class="btn-back">← Back to Home</a>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="Bennett Home & Outdoor" class="logo-img">
+            </a>
+        </div>
+        <div class="nav-right">
+            <div class="contact-badge-oval">
+                <span class="yellow-text">Call or Text</span>
+                <span class="phone-number">(321) 468-2461</span>
+                <span class="yellow-text">For Free Quotes</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="page-wrapper">
+    <div class="page-intro">
+        <h1 class="page-title">Gutter Cleaning Services</h1>
+        <p class="page-subtitle">Reliable, High-Quality Property Maintenance for Titusville & Surrounding Areas</p>
+    </div>
+
+    <main class="content-container">
+        <div class="pricing-grid">
+            
+            <div class="price-card">
+                <h2>WHY IT'S WORTH<br>CLEANING YOUR GUTTERS</h2>
+                <ul>
+                    <li>Prevents water overflow around your home</li>
+                    <li>Helps protect your roof and foundation</li>
+                    <li>Reduces mold, mildew, and buildup</li>
+                    <li>Keeps pests and insects out</li>
+                    <li>Prevents sagging or damaged gutters</li>
+                    <li>Protects your landscaping</li>
+                </ul>
+            </div>
+
+            <div class="price-card">
+                <h2 class="large-header">SERVICES WE PROVIDE</h2>
+                <div class="price-tag">Starting at $100 per home</div>
+                <ul>
+                    <li>Removing leaves, sticks, and loose debris</li>
+                    <li>Clearing out packed buildup and sludge</li>
+                    <li>Clearing out clogged downspouts</li>
+                    <li>Rinsing and checking water flow (when water is available)</li>
+                    <li>Bagging and removing debris</li>
+                    <li>Cleaning up the area before we leave</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="bottom-cta-banner-wrapper">
+            <section class="bottom-cta-banner">
+                <h2>Call or Text</h2>
+                <span class="cta-phone">(321) 468-2461</span>
+                <p>For Free Quotes</p>
+            </section>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
