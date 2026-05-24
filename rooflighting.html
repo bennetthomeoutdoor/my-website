@@ -5,145 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Permanent Lighting | Bennett Home and Outdoor</title>
     <style>
-        body { 
-            background-color: #0056b3; color: white; font-family: Arial, sans-serif; 
-            margin: 0; padding: 15px; text-align: center;
-        }
-
-        /* Header Styles */
-        .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .back-btn { background: #00b300; border: 2px solid white; border-radius: 50px; padding: 8px 15px; color: white; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
-        .logo-img { max-width: 150px; }
-        .phone-pill { background: #00b300; border: 2px solid white; border-radius: 50px; padding: 8px 15px; color: white; font-weight: bold; line-height: 1.1; font-size: 0.8rem; }
-        .yellow-num { color: #ffde00; font-size: 1.1rem; display: block; }
-
-        /* Branding */
-        .brand-section { margin-top: 2vh; margin-bottom: 15px; }
-        .brand-title { font-size: 1.8rem; font-weight: bold; margin: 0; }
-        .sub-title { font-size: 0.9rem; color: #ffde00; margin-top: 5px; margin-bottom: 20px; }
-
-        /* New Taller/Narrower Slideshow */
-        .slideshow-container { 
-            width: 450px; 
-            height: 350px; 
-            border: 3px solid #00b300; 
-            border-radius: 8px; 
-            overflow: hidden; 
-            margin: 0 auto 15px auto; 
-            background: #000; 
-        }
-        .slideshow-inner { 
-            display: flex; 
-            width: 600%; 
-            height: 100%; 
-            animation: slideAnimation6 24s infinite; 
-        }
-        .slideshow-inner img { 
-            width: 16.66%; 
-            height: 100%; 
-            object-fit: contain; 
-        }
-
-        @keyframes slideAnimation6 {
-            0% { transform: translateX(0%); } 14% { transform: translateX(0%); }
-            16.6% { transform: translateX(-16.66%); } 30.6% { transform: translateX(-16.66%); }
-            33.3% { transform: translateX(-33.33%); } 47.3% { transform: translateX(-33.33%); }
-            50% { transform: translateX(-50%); } 64% { transform: translateX(-50%); }
-            66.6% { transform: translateX(-66.66%); } 80.6% { transform: translateX(-66.66%); }
-            83.3% { transform: translateX(-83.33%); } 97.3% { transform: translateX(-83.33%); }
-            100% { transform: translateX(0%); }
-        }
-
-        /* Boxes */
-        .three-box-container { display: flex; gap: 15px; margin: 0 auto 20px auto; max-width: 750px; }
-        .box { background: white; color: #333; padding: 15px; border: 2px solid #00b300; border-radius: 6px; flex: 1; text-align: left; display: flex; flex-direction: column; }
-        h2 { color: #0056b3; margin-top: 0; font-size: 0.9rem; text-transform: uppercase; border-bottom: 2px solid #00b300; padding-bottom: 8px; margin-bottom: 15px; text-align: center; }
+        /* Mobile-First Base Styling */
+        body { font-family: sans-serif; background-color: #0056b8; color: white; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
         
-        .price-row { background: #fffdf0; padding: 8px; margin-bottom: 10px; font-weight: 700; border-radius: 3px; font-size: 0.75rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e6c200; }
-        .price-val { color: #00b300; font-size: 1.3rem; font-weight: 900; }
+        /* Ensure images and containers never exceed screen width */
+        img { max-width: 100%; height: auto; border-radius: 10px; }
         
-        ul { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
-        li { margin-bottom: 18px; font-weight: 600; font-size: 0.75rem; position: relative; padding-left: 20px; line-height: 1.2; }
-        li::before { content: "✓"; color: #00b300; font-weight: bold; position: absolute; left: 0; font-size: 0.9rem; }
-        .spread-list li { margin-bottom: 22px; }
-
-        .bonus-box { background: white; color: #333; padding: 15px; border: 2px solid #00b300; border-radius: 6px; margin: 0 auto 15px auto; max-width: 710px; text-align: center; }
-        .bonus-title { color: #cc0000; font-weight: 800; font-size: 0.9rem; margin-bottom: 10px; }
-        .bonus-list { display: flex; gap: 20px; text-align: left; font-weight: 600; font-size: 0.75rem; }
+        /* Navigation back home */
+        .back-btn { display: inline-block; padding: 10px 20px; background: #ffd11a; color: black; text-decoration: none; border-radius: 5px; font-weight: bold; margin-bottom: 20px; }
         
-        .footer-pill { background: #00b300; border: 2px solid white; border-radius: 50px; padding: 10px 20px; display: inline-block; margin-top: 15px; font-weight: bold; font-size: 0.9rem; }
+        h1 { color: #ffd11a; }
     </style>
 </head>
 <body>
 
-    <div class="top-nav">
-        <a href="index.html" class="back-btn">← Back to Home</a>
-        <img src="logo.png" class="logo-img" alt="Logo">
-        <div class="phone-pill">Call or Text<span class="yellow-num">(321) 468-2461</span>For Free Quotes</div>
+<div class="container">
+    <a href="index.html" class="back-btn">← Back Home</a>
+    <h1>Permanent Lighting</h1>
+    <p>Details about your permanent lighting installation go here.</p>
+    
+    <div style="background: white; color: #333; padding: 20px; border-radius: 10px;">
+        <h3>Why choose our lighting?</h3>
+        <p>• Weatherproof and durable<br>
+           • Fully customizable via app<br>
+           • Professional installation</p>
     </div>
-
-    <div class="brand-section">
-        <h1 class="brand-title">Govee Permanent Outdoor Lighting Installation</h1>
-        <p class="sub-title">Reliable, High-Quality Property Upgrades for Titusville & Surrounding Areas</p>
-    </div>
-
-    <div class="slideshow-container">
-        <div class="slideshow-inner">
-            <img src="step2.png" alt="Installation Step 2">
-            <img src="step6.png" alt="Installation Step 6">
-            <img src="step10.png" alt="Installation Step 10">
-            <img src="step13.png" alt="Installation Step 13">
-            <img src="step15.png" alt="Installation Step 15">
-            <img src="step16.png" alt="Installation Step 16">
-        </div>
-    </div>
-
-    <div class="three-box-container">
-        <div class="box">
-            <h2>Installation Pricing</h2>
-            <div class="price-row">100ft – Average One-Story Home <span class="price-val">$450</span></div>
-            <div class="price-row">150ft – Average Two-Story Home <span class="price-val">$725</span></div>
-            <div class="price-row" style="display: block;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    200ft – Large <span class="price-val">$950</span>
-                </div>
-                <div style="margin-top: 4px;">Two-Story Home</div>
-            </div>
-        </div>
-
-        <div class="box">
-            <h2>What's Included</h2>
-            <ul class="spread-list">
-                <li>Genuine Govee Permanent Outdoor Lighting System</li>
-                <li>Premium Mounting Brackets</li>
-                <li>Professional Installation</li>
-                <li>4 Year Comprehensive Warranty</li>
-            </ul>
-        </div>
-
-        <div class="box">
-            <h2>4 Year Warranty Coverage</h2>
-            <ul>
-                <li>100% parts and mechanical protection against system defects</li>
-                <li>Coverage includes power surge protection from electrical damage</li>
-                <li>Zero hidden fees or deductible costs</li>
-            </ul>
-            <div style="font-weight: 800; font-size: 0.65rem; margin-top: auto; padding-top: 10px; border-top: 1px solid #ddd; white-space: nowrap;">
-                * Warranty protection is provided by Asurion.
-            </div>
-        </div>
-    </div>
-
-    <div class="bonus-box">
-        <div class="bonus-title">★ BONUS WITH EVERY INSTALLATION ★</div>
-        <p style="font-weight: 800; color: #0056b3; font-size: 0.9rem; margin-bottom: 10px;">1-Hour Personalized Govee Lights Walkthrough</p>
-        <div class="bonus-list">
-            <div>• Learn how to Adjust Colors, Motion Effects, Schedules, and Create Custom Scenes</div>
-            <div>• 200+ Exclusive Pre-Designed Lighting Scenes for Holidays, Sports Teams, and Special Occasions</div>
-        </div>
-    </div>
-
-    <div class="footer-pill">Call or Text<br><span class="yellow-num" style="font-size: 1.4rem;">(321) 468-2461</span>For Free Quotes</div>
+</div>
 
 </body>
 </html>
