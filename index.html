@@ -5,27 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bennett Home and Outdoor</title>
     <style>
-        /* Modern reset for fluid layouts */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: #0056b8; color: white; font-family: sans-serif; overflow-x: hidden; }
-        
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 20px; width: 100%; max-width: 1200px; margin: 0 auto; }
-        .logo-link { width: 100%; max-width: 250px; }
-        .logo-img { width: 100%; height: auto; }
-        
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 20px; 
-            width: 90%; /* Fluid width */
-            max-width: 1200px; 
-            margin: 40px auto; 
-        }
-        
-        .card { background: white; color: #333; padding: 20px; border-radius: 12px; border: 4px solid #00cc00; text-decoration: none; display: flex; flex-direction: column; }
-        /* ... rest of your styles ... */
+        body { font-family: sans-serif; background-color: #0056b8; color: white; margin: 0; padding: 20px; text-align: center; }
+        .logo-img { max-width: 200px; display: block; margin: 0 auto; }
+        .phone-section { margin: 20px 0; background: #003c82; padding: 15px; border-radius: 10px; display: inline-block; }
+        .phone-num { font-size: 1.5rem; font-weight: bold; color: #ffd11a; text-decoration: none; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 800px; margin: 20px auto; }
+        .card { background: white; color: #333; padding: 20px; border-radius: 10px; text-decoration: none; border: 4px solid #00cc00; display: block; }
+        .card h3 { color: #0056b8; margin-top: 0; }
+        .card-btn { display: block; background: #ffd11a; color: black; padding: 10px; margin-top: 10px; border-radius: 5px; font-weight: bold; }
     </style>
 </head>
 <body>
-    </body>
+
+<header>
+    <img src="logo.png" alt="Logo" class="logo-img">
+    <div class="phone-section">
+        <p>Call or Text for a Free Quote:</p>
+        <a href="tel:3214682461" class="phone-num">(321) 468-2461</a>
+    </div>
+</header>
+
+<div class="services-grid">
+    <a href="lawn-service.html" class="card">
+        <h3>Lawn Service</h3>
+        <span class="card-btn">View Details</span>
+    </a>
+    <a href="rooflighting.html" class="card">
+        <h3>Permanent Lighting</h3>
+        <span class="card-btn">View Details</span>
+    </a>
+    <a href="gutter-cleaning.html" class="card">
+        <h3>Gutter Cleaning</h3>
+        <span class="card-btn">View Details</span>
+    </a>
+    <a href="can-cleaning.html" class="card">
+        <h3>Trash Bin Cleaning</h3>
+        <span class="card-btn">View Details</span>
+    </a>
+</div>
+
+</body>
 </html>
